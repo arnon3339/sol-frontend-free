@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;		
+	width: 100%;
+  color: rgb(var(--foreground-rgb));
+	background: linear-gradient(45deg, rgb(255, 10, 255) 0%, rgba(125, 55, 125, 0) 70%) repeat scroll 0% 0%, 
+  linear-gradient(135deg, rgb(255, 225, 152) 10%, rgba(49, 209, 5, 0) 80%) repeat scroll 0% 0%, 
+  linear-gradient(225deg, hsla(179, 81%, 45%, 1) 10%, rgba(10, 219, 216, 0) 80%) repeat scroll 0% 0%,
+   rgba(0, 0, 0, 0) linear-gradient(315deg, rgb(200, 255, 45) 100%, rgba(9, 245, 5, 0) 70%) repeat scroll 0% 0%;
+	background-repeat: no-repeat;
+	background-attachment: fixed; 
+	background-size: 100% 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+select {
+	color: #ffffff;
+	font-weight: bold;
+	margin-top: 0.5rem;
+	background: transparent;
+
+	border: none; /* Optionally remove the border */
+	outline: none; /* Remove outline on focus */
+
+	-webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  appearance: none; /* Remove default arrow in other browsers */
+
+}
+
+select:focus{
+	outline:0px;
+}
+
+select option{
+	background: transparent;
+  color: black; /* Change the text color of options */
+	-webkit-appearance: none;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+	width: 100%;
+	justify-content: center;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+.card-container-loading {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+		width: 100%;
+		height: 100vh;
+		justify-content: center; 
+    column-gap: 25px;
+    row-gap: 25px;
+		padding: 8%;
+		overflow: hidden;
+}
+
+
+@media only screen and (min-width: 1536px){
+
+.card-container {
+    grid-template-columns: repeat(auto-fill, 260px);
+    column-gap: 30px;
+    row-gap: 30px;
+	}
+
+.card-container-loading {
+    grid-template-columns: repeat(auto-fill, 260px);
+    column-gap: 30px;
+    row-gap: 30px;
+	}
+}
+
+.filter-container{
+	display: flex;
+	justify-content: center; 
+}
+
+.att-container {
+	margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+	width: 100%;
+	align-items: center;
+	justify-content: center; 
+    column-gap: 5px;
+    row-gap: 5px;
+	width: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.att-container::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-container .filter-child:not(:first-child):not(:last-child) {
+	margin: 0px 10px 0px 10px;
+}
+
+.filter-container-sm{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 56px);
+    width: 95%;
+    column-gap: 5%;
+    justify-content: center; 
+    row-gap: 5%;
+    padding: 4px;
+}
+
+@media only screen and (max-width: 364px){
+.card-container {
+	width: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center;
+	}
+
+  .filter-container-sm{
+      grid-template-columns: repeat(auto-fill, 40px) !important;
+      column-gap: 4px !important;
+      row-gap: 4px !important;
+      padding: 4px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1279px){
+	.filter-container{
+			display: grid !important;
+			grid-template-columns: repeat(auto-fill, 200px) !important;
+			width: 95% !important;
+			column-gap: 20px !important;
+			justify-content: center !important; 
+			row-gap: 10px !important;
+	}
+
+	.filter-container .filter-child{
+		margin: 0px !important;
+	}
+	
+}
+
+@media only screen and (max-width: 1280px){
+	.filter-container{
+			display: grid !important;
+      width: 95%;
+			grid-template-columns: repeat(auto-fill, 150px) !important;
+			column-gap: 2px;
+			row-gap: 4px;
+	}
+	.filter-container .filter-child{
+    margin: 0px !important;
+		font-size: 0.75rem !important;
+		width: 150px !important;
+    padding: 1px !important;
+	}
+  /* .att-container {
+      grid-template-columns: repeat(auto-fill, minmax(20px, 1fr)) !important;
+      font-size: 20px !important;
+      padding: 5px 20px 5px 20px !important;
+      column-gap: 2px !important;
+      row-gap: 4px !important;
+  } */
+}
+
+@keyframes shadowMdFade {
+  0% { box-shadow: 0px 0px #888888; }
+  100% { box-shadow: 2px 4px #888888; }
+}
+
+.my-card {
+	background-color: rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(24px);
+	backdrop-filter: brightness(1.25);
+}
+
+.my-card-loading {
+	background-color: rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(24px);
+}
+
+.my-card:hover {
+  animation: myCardIn 0.2s ease-in-out forwards;
+}
+
+@keyframes myCardIn {
+	0% { 
+		background-color: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(24px);
+		backdrop-filter: brightness(1.25);
+		box-shadow: 0px 0px #888888;
+	}
+	100% { 
+		background-color: rgba(255, 255, 255, 1);
+		backdrop-filter: none;
+		backdrop-filter: brightness(1.25);
+		box-shadow: 2px 4px #888888;
+	}
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+.filter-plane-fadein-1s{
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.filter-plane-fadeout-1s{
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+.filter-plane-fadein-05s{
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.filter-plane-fadeout-05s{
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Define the gradient box */
+.loading-gradient-box {
+	background-position:10% 0%;
+	background: linear-gradient(130deg, rgba(200, 200, 200, 0), rgba(200, 200, 200, 1), rgba(200, 200, 200, 0));
+	background-size: 300% 300%;
+
+	-webkit-animation: loadingSlide 5s ease infinite;
+	-moz-animation: loadingSlide 5s ease infinite;
+	animation: loadingSlide 5s ease infinite;
+}
+
+@-webkit-keyframes loadingSlide {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes loadingSlide {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes loadingSlide { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
