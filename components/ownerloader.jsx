@@ -5,7 +5,9 @@ import {DotsVerticalIcon} from "@radix-ui/react-icons";
 
 export default function OwnersLoader({mint, name, kind}) {
     const [data, setData] = useState([])
-  const host = "http://localhost:8080/api"
+  const host = process.env?.NEXT_PUBLIC_VERCEL_URL ? 
+			`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`:
+			`${process.env.BACKEND_LOCALHOST}:${process.env.BACKEND_LOCALPORT}/api`
   const query = `/nftowners/?name=${name}&mint=${mint}&kind=${kind}`;
 
   useEffect( () => {
